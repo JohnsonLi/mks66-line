@@ -36,5 +36,26 @@ def draw_line( x0, y0, x1, y1, screen, color ):
                 y += 1
                 d += 2 * b
 
-        # octant 7, 8
-        # if dy < 0:
+    # octant 7, 8
+    if dy < 0:
+        if -1 * dy > dx:
+            d = a + -2 * b
+
+            while y >= y1:
+                plot(screen, color, x, y)
+                if d >= 0:
+                    x += 1
+                    d += a * 2
+                y -= 1
+                d += -2 * b
+
+        if -1 * dy <= dx:
+            d = 2 * a - b
+
+            while x <= x1:
+                plot(screen, color, x, y)
+                if d <= 0:
+                    y -= 1
+                    d += -2 * b
+                x += 1
+                d += 2 * a
